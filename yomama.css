@@ -1,0 +1,19 @@
+
+
+<div class="banner">
+    <img src ="/images/neen.gif" alt="Nina's Web Ring">
+  </div>
+.banner {
+      display: flex;              /* enable flexbox */
+      justify-content: center;    /* center horizontally */
+      margin: 0px;               /* space above & below */
+
+}
+
+
+.banner img {
+  max-width: 50%;   /* image won’t be too big */
+  height: auto;     /* keep proportions */
+  border-radius: 10px; /* optional: rounded corners */
+  margin-left: 50px;
+}
