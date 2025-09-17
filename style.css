@@ -498,7 +498,7 @@ http://stackoverflow.com/a/34696029/383904
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  border: 10px solid ff9ede; /* thin border */
+  border: 10px solid #ff9ede; /* thin border */
 }
 
 .card-front {
