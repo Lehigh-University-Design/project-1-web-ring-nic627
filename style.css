@@ -2,12 +2,138 @@
 :root {
   --header-color: #ff9ede;
   --header-hover-color: #f17bcc;
+  
 }
+
+/*Fonts*/
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pixelify-sans-yuh {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 25px;
+  color: white;
+  text-shadow: 
+    0 0 2px #ffffff,
+    0 0 10px #ff9ede,
+    0 0 16px #ff50aa;
+  transition: text-shadow 0.3s ease;
+  
+}
+
+.pixelify-sans {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 40px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* X-offset, Y-offset, blur, color */
+}
+
+.pixelify-sans-yuh:hover {
+  background: none !important; /* no hover box */
+  text-shadow: 
+    0 0 1px #ff9ede,
+    0 0 2px #ff9ede,
+    0 0 6px #ff148d,
+    0 0 10px #dc0071;
+}
+
+.cursor-container {
+  display: flex;
+  justify-content: center; /* centers the text horizontally */
+}
+
+.cursor {
+  border-right: 3px solid rgba(255,255,255,.75);
+  font-size: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Pixelify Sans", sans-serif;
+  color: white;
+}
+
+
+
+/* Animation */
+.typewriter-animation {
+  animation: 
+    typewriter 3s steps(50) 1s 1 normal both, 
+    blinkingCursor 500ms steps(50) infinite normal;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 16ch; }
+}
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+.cursor-container {
+  display: flex;
+  justify-content: center; /* centers the text horizontally */
+  margin-top: 60px;
+}
+
+.CSSgal + .cursor-container {
+  margin-top: 60px; /* pushes Top Three Games text lower */
+}
+
+.cursor {
+  border-right: 3px solid rgba(255,255,255,.75);
+  font-size: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Pixelify Sans", sans-serif;
+  color: white;
+
+  /* add shadow */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
+}
+
+/* Animation */
+#typewriter-animation-1 {
+  animation: 
+    typewriter 3s steps(50) 1s 1 normal both, 
+    blinkingCursor1 500ms steps(50) infinite normal;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 16ch; }
+}
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+
+#typewriter-animation-2 {
+  animation: 
+    typewriter1 3s steps(50) 1s 1 normal both, 
+    blinkingCursor1 500ms steps(50) infinite normal;
+}
+@keyframes typewriter2 {
+  from { width: 0; }
+  to { width: 16ch; }
+}
+@keyframes blinkingCursor2{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
 
 body {
   margin: 0; 
   padding: 0;
   font-family: 'Lato', sans-serif;
+  background-image: url("./images/background.gif");
+  background-size: cover;           /* fill screen */
+  background-position: center;      /* keep centered */
+  background-attachment: fixed;
+
+  
 }
 
 .header {
@@ -15,7 +141,11 @@ body {
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  height: 70px;   /* lock header height */
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  justify-content: space-between; /* space logo left and Kirby right */
 }
 
 .header img {
@@ -30,11 +160,12 @@ body {
 }
 
 nav {
-  flex: 1;                  /* stretch across remaining space */
-  display: flex;
-  justify-content: center;  /* center links horizontally */
-  gap: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* perfect centering */
 }
+
+
 
 nav a, .dropdown > a { /* style links and dropdown trigger */
   position: relative;
@@ -46,268 +177,241 @@ nav a, .dropdown > a { /* style links and dropdown trigger */
 }
 
 
+/* Remove the background expansion */
 nav a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0;                  /* start hidden */
-  background-color: var(--header-hover-color);
-  z-index: -1;                /* stay behind text */
-  transition: height 0.3s ease;
+  content: none; /* disable the pseudo-element */
 }
+
+/* Or, if you might reuse it elsewhere, just stop it from showing */
+nav a::before {
+  height: 0 !important;
+  background: none !important;
+}
+
 
 nav a:hover::before {
   height: 100%;               /* grow upward */
   
 }
 
-nav a:hover {
-  color: rgb(255, 255, 255);                /* optional: change text color */
-  
-}
 
 
-nav a:hover {
-  background-color: var(--header-hover-color);
-}
 
-/*Image slider*/
+/*---------------------------------------------*/
 
-.image-slider {
-  max-width: 37.5rem;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
 
-@keyframes tonext {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: 100%;
-  }
-  98% {
-    left: 100%;
-  }
-  99% {
-    left: 0;
-  }
-}
+/*--------------------------------------------*/
 
-@keyframes tostart {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: -300%;
-  }
-  98% {
-    left: -300%;
-  }
-  99% {
-    left: 0;
-  }
-}
+*{box-sizing: border-box; -webkit-box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font: 16px/1.3 sans-serif; }
 
-@keyframes snap {
-  96% {
-    scroll-snap-align: center;
-  }
-  97% {
-    scroll-snap-align: none;
-  }
-  99% {
-    scroll-snap-align: none;
-  }
-  100% {
-    scroll-snap-align: center;
-  }
-}
+/*
+PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
+http://stackoverflow.com/a/34696029/383904
+*/
 
-* {
-  box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
-  scrollbar-width: 0px;
-}
-
-*::-webkit-scrollbar {
-  width: 0;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: transparent;
-  border: none;
-}
-
-* {
-  -ms-overflow-style: none;
-}
-
-ol, li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.carousel {
+.CSSgal {
   position: relative;
-  padding-top: 75%;
-  filter: drop-shadow(0 0 10px #0003);
-  perspective: 100px;
+  overflow: hidden;
+  height: 600px;
+  max-width: 1000px;
+  margin: 20px auto;   /* reduce from 40px → 20px */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 8px solid #ff9ede;
+  border-radius: 15px;
 }
 
-.carousel__viewport {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  overflow-x: scroll;
-  counter-reset: item;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+
+/* SLIDER */
+
+.CSSgal .slider {
+  height: 100%;
+  white-space: nowrap;
+  font-size: 0;
+  transition: 0.8s;
 }
 
-.carousel__slide {
-  position: relative;
-  flex: 0 0 100%;
+/* SLIDES */
+
+.CSSgal .slider > * {
+  font-size: 1rem;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  height: 100%;
   width: 100%;
-  background-color: #f99;
-  counter-increment: item;
+  background: none 50% no-repeat;
+  background-size: cover;
 }
 
-.carousel__slide:nth-child(even) {
-  background-color: #99f;
+/* Slider container uses background images */
+.CSSgal .slider > div {
+  background-size: cover;        /* make it fill */
+  background-position: center;   /* center the image */
+  background-repeat: no-repeat;  /* no tiling */
 }
 
-.carousel__slide:before {
-  content: counter(item);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%,-40%,70px);
-  color: #fff;
-  font-size: 2em;
-}
-
-.carousel__snapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Hide <img> tags inside slides (optional if you switch to background-image) */
+.CSSgal .slider img {
   width: 100%;
   height: 100%;
-  scroll-snap-align: center;
+  object-fit: cover;  /* makes it fill while keeping proportions */
 }
 
-@media (hover: hover) {
-  .carousel__snapper {
-    animation-name: tonext, snap;
-    animation-timing-function: ease;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-  }
 
-  .carousel__slide:last-child .carousel__snapper {
-    animation-name: tostart, snap;
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
-    animation-name: none;
-  }
-}
 
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
-  animation-name: none;
-}
 
-.carousel__navigation {
+
+
+
+/* PREV/NEXT, CONTAINERS & ANCHORS */
+
+.CSSgal .prevNext {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: #333;
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-
-.carousel::before,
-.carousel::after,
-.carousel__prev,
-.carousel__next {
-  position: absolute;
-  top: 0;
-  margin-top: 37.5%;
-  width: 4rem;
-  height: 4rem;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  font-size: 0;
-  outline: 0;
-}
-
-.carousel::before,
-.carousel__prev {
-  left: -1rem;
-}
-
-.carousel::after,
-.carousel__next {
-  right: -1rem;
-}
-
-.carousel::before,
-.carousel::after {
-  content: '';
   z-index: 1;
-  background-color: #333;
-  background-size: 1.5rem 1.5rem;
-  background-repeat: no-repeat;
-  background-position: center center;
-  color: #fff;
-  font-size: 2.5rem;
-  line-height: 4rem;
+  top: 50%;
+  width: 100%;
+  height: 0;
+}
+
+.CSSgal .prevNext > div+div {
+  visibility: hidden; /* Hide all but first P/N container */
+}
+
+.CSSgal .prevNext a {
+  background: url("./images/arrows.png") center/100% no-repeat; /* replace with your image path */
+  position: absolute;
+  width: 110px;
+  width: 110px;
+  height: 60px;
+  opacity: 0.8;
+  transition: 0.3s;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  filter: drop-shadow(0 0 40px #ff9ede);
+}
+.CSSgal .prevNext a:hover {
+  filter: drop-shadow(0 0 8px #ff00ae);   /* far glow */ /* stronger glow on hover */
+  opacity: 1;
+}
+.CSSgal .prevNext a+a {
+  background: url("./images/arrows.png") center/100% no-repeat; /* right arrow */
+  left: auto;
+  right: 0;
+}
+/* Left arrow (flipped horizontally) */
+.CSSgal .prevNext a:first-child {
+  transform: translateY(-50%) scaleX(-1); /* flips the right-pointing arrow */
+}
+
+/* NAVIGATION */
+
+.CSSgal .bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  padding: 10px 0;
+  width: 100%;
   text-align: center;
-  pointer-events: none;
+}
+.CSSgal .bullets > a {
+  display: inline-block;
+  width:       30px;
+  height:      30px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: center;
+  background: rgb(255, 255, 255);
+  -webkit-transition: 0.3s;
+          transition: 0.3s;
+}
+.CSSgal .bullets > a+a {
+  background: rgba(255, 255, 255, 0.241); /* Dim all but first */
+}
+.CSSgal .bullets > a:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
 }
 
-.carousel::before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+/* NAVIGATION BUTTONS */
+/* ALL: */
+.CSSgal > s {
+  display: none; /* hide the anchor targets so they don’t shift the page */
 }
 
-.carousel::after {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+.CSSgal >s:target ~ .bullets >* {      background: rgba(255, 255, 255, 0.5);}
+/* ACTIVE */
+#s1:target ~ .bullets >*:nth-child(1) {background: rgba(255, 255, 255,   1);}
+#s2:target ~ .bullets >*:nth-child(2) {background: rgba(255, 255, 255,   1);}
+#s3:target ~ .bullets >*:nth-child(3) {background: rgba(255, 255, 255,   1);}
+#s4:target ~ .bullets >*:nth-child(4) {background: rgba(255, 255, 255,   1);}
+/* More slides? Add here more rules */
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+/* ALL: */
+.CSSgal >s:target ~ .prevNext >* {      visibility: hidden;}
+/* ACTIVE: */
+#s1:target ~ .prevNext >*:nth-child(1) {visibility: visible;}
+#s2:target ~ .prevNext >*:nth-child(2) {visibility: visible;}
+#s3:target ~ .prevNext >*:nth-child(3) {visibility: visible;}
+#s4:target ~ .prevNext >*:nth-child(4) {visibility: visible;}
+#s5:target ~ .prevNext >*:nth-child(5) {visibility: visible;}
+#s6:target ~ .prevNext >*:nth-child(6) {visibility: visible;}
+#s7:target ~ .prevNext >*:nth-child(7) {visibility: visible;}
+#s8:target ~ .prevNext >*:nth-child(8) {visibility: visible;}
+#s9:target ~ .prevNext >*:nth-child(9) {visibility: visible;}
+#s10:target ~ .prevNext >*:nth-child(10) {visibility: visible;}
+
+/* More slides? Add here more rules */
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target ~ .slider {transform: translateX(   0%); -webkit-transform: translateX(   0%);}
+#s2:target ~ .slider {transform: translateX(-100%); -webkit-transform: translateX(-100%);}
+#s3:target ~ .slider {transform: translateX(-200%); -webkit-transform: translateX(-200%);}
+#s4:target ~ .slider {transform: translateX(-300%); -webkit-transform: translateX(-300%);}
+#s5:target ~ .slider {transform: translateX(-400%);-webkit-transform: translateX(-400%);}
+#s6:target ~ .slider {transform: translateX(-500%);-webkit-transform: translateX(-500%);}
+#s7:target ~ .slider {transform: translateX(-600%);-webkit-transform: translateX(-600%);}
+#s8:target ~ .slider {transform: translateX(-700%);-webkit-transform: translateX(-700%);}
+#s9:target ~ .slider {transform: translateX(-800%);-webkit-transform: translateX(-800%);}
+#s10:target ~ .slider {transform: translateX(-900%);-webkit-transform: translateX(-900%);}
+/* More slides? Add here more rules */
+
+
+/* YOU'RE THE DESIGNER! 
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.CSSgal{
+  color: #000000;  
+  text-align: center;
 }
+.CSSgal .slider h2 {
+  margin-top: 30vh;
+  font-weight: 200;
+  letter-spacing: -0.06em;
+  word-spacing: 0.2em;
+  font-size: 3em;
+}
+.CSSgal a {
+  border-radius: 50%;
+  margin: 0 3px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+/*---------------------------------------------*/
 
 /* Dropdown container */
 .dropdown {
   position: relative;
   display: inline-block;
 }
+
 
 /* Dropdown menu (hidden by default) */
 .dropdown-content {
@@ -316,7 +420,7 @@ ol, li {
   left: 0;                     
   top: 100%;                   
   background-color: var(--header-color);
-  min-width: 136.5px;
+  min-width: 144px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1;
   transition: box-shadow 0.3s ease;
@@ -340,12 +444,15 @@ ol, li {
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
 }
 
+/*---------------------------------------------*/
+/* Card flip effect */
 /*https://prismic.io/blog/css-hover-effects*/
 .card-divider {
   display: flex;
   justify-content: center;  /* center cards as a group */
   gap: 100px;               /* space between each card */
-  margin-top: 150px;        /* push cards lower from the header */
+  margin-top: 50px; 
+         /* push cards lower from the header */
 }
 
 .card {
@@ -354,6 +461,19 @@ ol, li {
   perspective: 1000px;
   cursor: pointer;
   margin: 0;      /* remove auto-centering */
+  
+  
+  h2 {
+    text-align: center;
+  }
+  img{
+    display: block;
+    padding: 20px;
+    width: 50%;
+    cursor: default;
+    margin: 0 auto;  /* center the image */
+  }
+  
 }
 
 .card-inner {
@@ -378,24 +498,40 @@ ol, li {
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  border: 10px solid ff9ede; /* thin border */
 }
 
 .card-front {
   background: white;
-  border: 1px solid #e5e7eb;
 }
+
 
 .card-front img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 0.5rem;
 }
 
 .card-back {
-  background: #8b5cf6;
-  color: white;
+  background: #ffffff;
+  color: rgb(131, 22, 117);
   transform: rotateY(180deg);
+}
+
+.card-back p {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 27px; /* optional */
+  margin: 10px;    /* optional spacing */
+  text-align: center;
+}
+
+.card img {
+  padding: 0;         /* remove extra space */
+  width: 100%;        /* make image fill horizontally */
+  height: 100%;       /* stretch vertically */
+  object-fit: cover;  /* keep proportions but fill card */
+  border-radius: 0.5rem; /* optional rounded edges */
 }
 
 

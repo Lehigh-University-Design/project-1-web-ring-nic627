@@ -5,131 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nina's Hobbies: Games!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
 
 </head>
-
-
-
 
 <body>
   <!--Header with logo and navigation-->
   <div class="header">
-    <img id ="logo" src="/images/logo.png"> <!--Or add the neen.gif (might redo because dimensions are off)-->  
+    <img id ="logo" src="./images/logo.png"> <!--Or add the neen.gif (might redo because dimensions are off)-->  
     <nav>  <!-- target="_blank" opens up a new tab!!-->
-      <a href="https://www.figma.com/board/WmJ0qMek4PLYTTaj4exhuZ/P1--Web-Ring?node-id=0-1&t=4dbBaGt1eNmoi8al-1" target="_blank">Figma Jam</a>
-      <a href="#">Previous</a>
-      <a href="#">Next</a>
-      <div class="dropdown">
+      <a href="https://www.figma.com/board/WmJ0qMek4PLYTTaj4exhuZ/P1--Web-Ring?node-id=0-1&t=4dbBaGt1eNmoi8al-1" target="_blank" class="pixelify-sans-yuh">Figma Jam</a>
+      <!-- <div class="dropdown">
         <a href="#">Dropdown</a>
         <div class="dropdown-content">
           <a href="#">Option 1</a>
           <a href="#">Option 2</a>
           <a href="#">Option 3</a>
         </div>
-    </div>
+    </div> -->
     </nav>
-    <img id="kirby" src="/images/kirby.png" alt="Kirby">
+    <img id="kirby" src="./images/kirby.png" alt="Kirby">
   </div>
 
-  <h2>All the Games I Enjoy</h2>
-    <div class="image-slider">
-    <section class="carousel" aria-label="Gallery">
-      <ol class="carousel__viewport">
-        <li id="carousel__slide1"
-          tabindex="0"
-          class="carousel__slide">
-        <div class="carousel__snapper"><img src="/images/fsgif.webp"></div>
-          <a href="#carousel__slide4"
-          class="carousel__prev">Go to last slide</a>
-          <a href="#carousel__slide2"
-          class="carousel__next">Go to next slide</a>
-      </li>
-      <li id="carousel__slide2"
-        tabindex="0"
-        class="carousel__slide">
-        <div class="carousel__snapper"><img src="/images/crkbg.jpg"></div>
-          <a href="#carousel__slide1"
-          class="carousel__prev">Go to previous slide</a>
-          <a href="#carousel__slide3"
-          class="carousel__next">Go to next slide</a>
-      </li>
-      <li id="carousel__slide3"
-        tabindex="0"
-        class="carousel__slide">
-        <div class="carousel__snapper"><img src="/images/kirby.png"></div>
-          <a href="#carousel__slide2"
-          class="carousel__prev">Go to previous slide</a>
-          <a href="#carousel__slide4"
-          class="carousel__next">Go to next slide</a>
-      </li>
-      <li id="carousel__slide4"
-        tabindex="0"
-        class="carousel__slide">
-        <div class="carousel__snapper"><img src="/images/fsgif.webp"></div>
-          <a href="#carousel__slide3"
-          class="carousel__prev">Go to previous slide</a>
-          <a href="#carousel__slide1"
-          class="carousel__next">Go to first slide</a>
-      </li>
-    </ol>
-    <aside class="carousel__navigation">
-      <ol class="carousel__navigation-list">
-        <li class="carousel__navigation-item">
-          <a href="#carousel__slide1"
-          class="carousel__navigation-button">Go to slide 1</a>
-        </li>
-        <li class="carousel__navigation-item">
-          <a href="#carousel__slide2"
-          class="carousel__navigation-button">Go to slide 2</a>
-        </li>
-        </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide3"
-           class="carousel__navigation-button">Go to slide 3</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide4"
-           class="carousel__navigation-button">Go to slide 4</a>
-        </li>
-        </ol>
-      </aside>
-    </section>
+  <div class="cursor-container">
+    <p class="cursor typewriter-animation"  >All Games I Enjoy :D</p>
+  </div>
+  <!--Image slider of games-->
+  <div class="CSSgal">
+
+  <!-- Don't wrap targets in parent -->
+  <s id="s1"></s> 
+  <s id="s2"></s>
+  <s id="s3"></s>
+  <s id="s4"></s>
+  <s id="s5"></s>
+  <s id="s6"></s>
+  <s id="s7"></s>
+  <s id="s8"></s>
+  <s id="s9"></s>
+  <s id="s10"></s>
+   <!-- Logo: technically inside CSSgal, but styled above -->
+  
+  <div class="slider">
+    <div style="background-image: url('./images/cookierun.jpg');"></div>
+    <div style="background-image: url('./images/minecraftbg.avif');"></div>
+    <div style="background-image: url('./images/lolbg.jpg');"></div>
+    <div style="background-image: url('./images/sdvbg.jpg');"></div>
+    <div style="background-image: url('./images/picopark.avif');"></div>
+    <div style="background-image: url('./images/robloxbg.jpg');"></div>
+    <div style="background-image: url('./images/smbbg.jpg');"></div>
+    <div style="background-image: url('./images/wiisportbg.jpg');"></div>
+    <div style="background-image: url('./images/chessbg.jpeg');"></div>
+    <div style="background-image: url('./images/tetris.avif');"></div>
   </div>
   
+  <div class="prevNext">
+  <div><a href="#s10"></a><a href="#s2"></a></div> <!-- for slide 1 -->
+  <div><a href="#s1"></a><a href="#s3"></a></div>  <!-- for slide 2 -->
+  <div><a href="#s2"></a><a href="#s4"></a></div>  <!-- for slide 3 -->
+  <div><a href="#s3"></a><a href="#s5"></a></div>  <!-- for slide 4 -->
+  <div><a href="#s4"></a><a href="#s6"></a></div>  <!-- for slide 5 -->
+  <div><a href="#s5"></a><a href="#s7"></a></div>  <!-- for slide 6 -->
+  <div><a href="#s6"></a><a href="#s8"></a></div>  <!-- for slide 7 -->
+  <div><a href="#s7"></a><a href="#s9"></a></div>  <!-- for slide 8 -->
+  <div><a href="#s8"></a><a href="#s10"></a></div> <!-- for slide 9 -->
+  <div><a href="#s9"></a><a href="#s1"></a></div>  <!-- for slide 10 -->
+</div>
+</div>
+
+ <!---->
+
+ <div class="cursor-container">
+    <p class="cursor typewriter-animation"  >Top Three Games :D</p>
+  </div>
+
   
   <div class="card-divider">
     <div class="card">
+      <h2 class ="pixelify-sans">Cookie Run Kingdom</h2>
       <div class="card-inner">
         <div class="card-front">
-          <img src="/images/kirby.png">
-        </div>
-        <div class="card-back">Card 1
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="/images/crkbg.jpg">
+          <img src="./images/crkbg.jpg">
         </div>
         <div class="card-back">
-          
-          <img src="/images/fsgif.webp">
+          <p class="p">Cookie Run: Kingdom is a mobile RPG and city-building 
+            game where you collect cookie characters, build your kingdom, 
+            and battle enemies in story-driven campaigns and PvP arenas. 
+            My gatcha luck is insane ngl. (I never spent real money) </p>
         </div>
       </div>
     </div>
 
     <div class="card">
+      <h2 class ="pixelify-sans">Word Hunt</h2>
       <div class="card-inner">
         <div class="card-front">
-          <img src="/images/kirby.png">
+          <img src="./images/whbg.jpg">
         </div>
-        <div class="card-back">Card 3</div>
+        <div class="card-back">
+          <p class="p">Word Hunt on GamePigeon is a quick iMessage game where two players 
+            race to find the most words on a grid of letters before time runs out. I think my 
+          highest score is around 38k? </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class ="pixelify-sans">League of Legends</h2>
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="./images/lolbg.jpg">
+        </div>
+        <div class="card-back">
+          <p class="p">League of Legends is a fast-paced 5v5 
+            online battle arena where players use unique abilities to fight, 
+            destroy towers, and reach the enemy Nexus. I enjoy
+          playing ARAM!</p>
+        </div>
       </div>
     </div>
   </div>
+  
 </body>
 
 </html>
